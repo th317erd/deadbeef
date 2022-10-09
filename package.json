@@ -1,7 +1,7 @@
 {
   "name": "deadbeef",
   "description": "deadbeef is a unique key generator that will generate a key for any combo of anything",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./lib/index",
   "type": "commonjs",
   "directories": {
@@ -15,7 +15,17 @@
     "type": "git",
     "url": "git+https://github.com/th317erd/deadbeef.git"
   },
-  "keywords": [ "pointer", "address", "reference", "key", "unique", "identifier", "map", "cache", "equality" ],
+  "keywords": [
+    "pointer",
+    "address",
+    "reference",
+    "key",
+    "unique",
+    "identifier",
+    "map",
+    "cache",
+    "equality"
+  ],
   "author": "Wyatt Greenway",
   "license": "MIT",
   "bugs": {

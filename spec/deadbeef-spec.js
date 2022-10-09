@@ -116,6 +116,30 @@ describe('deadbeef', () => {
       expect(deadbeef(a)).toBe(deadbeef(b));
     });
 
+    it('should work properly with id helpers', () => {
+      class Test {
+        constructor(id) {
+          this.id = id;
+        }
+      }
+
+      const idHelper = (value) => value instanceof Test;
+
+      deadbeef.generateIDFor(
+        idHelper,
+        (value) => value.id,
+      );
+
+      let a = new Test(1);
+      let b = new Test(1);
+
+      expect(deadbeef(a)).toBe(deadbeef(b));
+
+      deadbeef.removeIDGenerator(idHelper);
+
+      expect(deadbeef(a)).not.toBe(deadbeef(b));
+    });
+
     it('shouldn\'t infinitely recurse with custom id generators', () => {
       class Test1 {}
 

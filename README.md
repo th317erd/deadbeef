@@ -159,6 +159,34 @@ console.log(deadbeef(user1) === deadbeef(user2));
 // -> true
 ```
 
+## Generating ids for foreign types
+
+But what if I want to generate an id for a type I don't control? Let's say for example you want to generate ids in the browser for `Element` types, where the id will be generated based on the elements tag name, and its `id` attribute. No problem!
+
+`deadbeef` has the method `generateIDFor` which will allow you to generate an id for _any_ type of value. The way this works is that you provide `generateIDFor` a `helper` method that will check if the type matches, and a `generator` method that will generate the id for a given type.
+
+In our example, we want to generate an id for `Element` types in the browser. Here is how you would do that:
+
+```javascript
+const deadbeef = require('deadbeef');
+
+const isElementHelper = (value) => value instanceof Element;
+
+// Set us up to generate ids for Element types
+deadbeef.generateIdFor(
+  isElementHelper,
+  (element) => deadbeef(element.tagName, element.getAttribute('id')),
+);
+
+// Are elements the same?
+console.log(deadbeef(document.getElementByID('myDiv1')) === deadbeef(document.getElementByID('myDiv1')));
+
+// Don't forget to cleanup!
+// To do so, we pass the `helper`
+// method to `removeIDGenerator`
+deadbeef.removeIDGenerator(isElementHelper);
+```
+
 ## The sky is the limit
 
 Though this library is super simple, it allows for some really awesome things to be created. Just think of the possibilities!
@@ -171,7 +199,8 @@ Though this library is super simple, it allows for some really awesome things to
 6. Check if two instances of anything are the same
 7. Check if multiple instances are the same
 8. Generate combo-keys for Maps
-9. ... and much more!
+9. Check if Elements have the same classes, styles, attributes, or whatever!
+10. ... and much more!
 
 Enjoy! Just for kix and giggles, drop us a line to let us know the creative application you have discovered for `deadbeef`.
 

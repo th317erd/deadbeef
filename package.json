@@ -1,0 +1,33 @@
+{
+  "name": "deadbeef",
+  "description": "deadbeef is a unique key generator that will generate a key for any combo of anything",
+  "version": "1.0.0",
+  "main": "./lib/index",
+  "type": "commonjs",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "node ./node_modules/.bin/jasmine",
+    "test-watch": "watch 'clear ; node ./node_modules/.bin/jasmine' . --wait=1 --interval=1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/th317erd/deadbeef.git"
+  },
+  "keywords": [ "pointer", "address", "reference", "key", "unique", "identifier", "map", "cache", "equality" ],
+  "author": "Wyatt Greenway",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/th317erd/deadbeef/issues"
+  },
+  "homepage": "https://github.com/th317erd/deadbeef#readme",
+  "devDependencies": {
+    "@spothero/eslint-plugin-spothero": "github:spothero/eslint-plugin-spothero",
+    "eslint": "^8.24.0",
+    "heapdump": "^0.3.15",
+    "jasmine": "^4.4.0",
+    "jsdom": "^20.0.1",
+    "nyc": "^15.1.0"
+  }
+}

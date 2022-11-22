@@ -1,10 +1,18 @@
-export declare interface DeadBeefFunction {
-  (...args: Array<any>): string;
-  sorted: (...args: Array<any>) => string;
-  generateIDFor: (
+declare function deadbeef(...args: Array<any>): string;
+
+declare namespace deadbeef {
+  const idSym: symbol;
+
+  function sorted(...args: Array<any>): string;
+
+  function generateIDFor(
     helper: (value: any) => boolean,
     generator: (value: any) => any,
-  ) => any;
-  removeIDGenerator: (helper: (value: any) => boolean) => void;
-  idSym: symbol;
+  ): any;
+
+  function removeIDGenerator(
+    helper: (value: any) => boolean,
+  ): void;
 }
+
+export = deadbeef

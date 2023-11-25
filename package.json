@@ -1,7 +1,7 @@
 {
   "name": "deadbeef",
   "description": "deadbeef is a unique key generator that will generate a key for any combo of anything",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "./lib/index",
   "type": "commonjs",
   "directories": {

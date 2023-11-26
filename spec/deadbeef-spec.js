@@ -79,6 +79,13 @@ describe('deadbeef', () => {
       expect(deadbeef(test2)).toBe(deadbeef(test2));
     });
 
+    it('should allow bypassing custom id generators', () => {
+      const test1 = { [deadbeef.idSym]: () => 'test' };
+
+      expect(deadbeef(test1)).toBe(deadbeef('test'));
+      expect(deadbeef.call({ custom: false }, test1)).not.toBe(deadbeef('test'));
+    });
+
     it('should work properly with objects', () => {
       const test1 = {};
       const test2 = {};
